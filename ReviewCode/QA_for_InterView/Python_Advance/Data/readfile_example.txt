@@ -1,0 +1,96 @@
+import pandas as pd
+
+
+def merge_data(my_result, police_data_need_columns):
+    my_result['temp_id'] = range(my_result.shape[0])
+    right_my_result = my_result[my_result['居委'].notna()]
+    empty_my_result = my_result[my_result['居委'].isna()]
+    empty_my_result.reset_index(drop=True, inplace=True)
+    empty_as_index = empty_my_result[['身份证/护照']]
+    merge_result = pd.merge(empty_as_index, police_data_need_columns, on='身份证/护照', how='left')
+
+    merge_result['居住区名称'] = merge_result['居住区名称'].str.replace(r'（.*）', '')
+    merge_result['居住区名称'] = merge_result['居住区名称'].str.replace(r"\(.*\)", "")
+
+    merge_result['居住区名称'] = merge_result['居住区名称'] + '(' + merge_result['所属楼宇'] + ')'
+    merge_result['所属楼宇'] = merge_result['居住区名称'] + merge_result['住宅楼编号（几号楼）']
+    base_data = merge_result.drop_duplicates(subset=['身份证/护照'], keep='first')
+    base_data = base_data.set_index('身份证/护照')
+    base_data_columns_list = base_data.columns.to_list()[1:]
+
+    for i in range(empty_my_result.shape[0]):
+        for column in base_data_columns_list:
+            # dict_temp = dict(zip(empty_my_result['身份证/护照'],empty_my_result[column]))
+            if pd.isna(empty_my_result.loc[i, column]):
+                card_id = empty_my_result.loc[i, '身份证/护照']
+                empty_my_result.loc[i, column] = base_data.loc[card_id, column]
+            else:
+                pass
+    empty_my_result['名称'] = empty_my_result['人员属性'] + empty_my_result['所属楼宇'] + empty_my_result['姓名']
+    for i in range(empty_my_result.shape[0]):
+        if pd.isna(empty_my_result.loc[i, '名称']):
+            empty_my_result.loc[i, '名称'] = '党员' + empty_my_result.loc[i, '姓名']
+        else:
+            pass
+
+    result = pd.concat([right_my_result, empty_my_result], sort=False, ignore_index=True)
+    result.sort_values(by=['temp_id'], ascending=True, inplace=True)
+    result.drop(columns=['temp_id'], inplace=True)
+
+    # 莫名的多了楼字段忘了删掉了
+    for i in range(result.shape[0]):
+        if result.loc[i, '住宅楼编号（几号楼）'] == '楼':
+            result.loc[i, '住宅楼编号（几号楼）'] = ""
+    return result
+
+
+def beizhu_modify(string_example):
+    if string_example is pd.np.nan:
+        string_example = ''
+    key_word_list = ['党', '书记']
+
+    if all(key_word in string_example for key_word in key_word_list):
+        return '支部-书记'
+    else:
+        return ''
+
+
+if __name__ == '__main__':
+    # my_result = pd.read_excel(r'E:\李震祥\Muyu_Code\code\花木街道\人口数据处理\result\花木街道_人员信息_结果.xlsx',
+    #                           encoding='utf-8')
+    # police_data = pd.read_excel(r'E:\李震祥\Muyu_Code\code\花木街道\人口数据处理\分类-全居委.xlsx', encoding='utf-8')[
+    #     ['姓名', '所属居委', '所属楼宇', '居住区名称', '住宅编号（几号楼）',
+    #      '证件号码', '房间号']]
+    # police_data_need_columns = police_data[['姓名', '所属居委', '所属楼宇', '居住区名称', '住宅编号（几号楼）',
+    #                                         '证件号码', '房间号']]
+    # police_data_need_columns.rename(columns={'所属居委': '居委', '住宅编号（几号楼）': '住宅楼编号（几号楼）', '证件号码':
+    #     '身份证/护照'}, inplace=True)
+    #
+    # result = merge_data(my_result=my_result, police_data_need_columns=police_data_need_columns)
+    #
+    # result.to_excel(r'E:\李震祥\Muyu_Code\code\花木街道\人口数据处理\result\花木街道_公安_人员信息_汇总结果.xlsx'
+    #                 , encoding='utf-8', index=False)
+
+    # 更新2.0
+    my_result_2 = pd.read_excel(r'D:\李震祥\code\code\花木街道\人口数据处理\result\花木街道_人员信息_结果1.xlsx',
+                                encoding='utf-8')
+    police_data = pd.read_excel(r'D:\李震祥\code\code\花木街道\人口数据处理\finally\花木街道_实有人口.xlsx',
+                                encoding='utf-8')
+    police_data_need_columns = police_data[['姓名', '所属居委', '所属楼宇', '居住区地址', '住宅编号（几号楼）',
+                                            '证件号码1', '房间号']]
+    police_data_need_columns.rename(columns={'所属居委': '居委', '住宅编号（几号楼）': '住宅楼编号（几号楼）',
+                                             '证件号码1': '身份证/护照', "居住区地址": '居住区名称'}, inplace=True)
+
+    result = merge_data(my_result=my_result_2, police_data_need_columns=police_data_need_columns)
+
+    result['备注'] = result.apply(lambda x: beizhu_modify(x['备注']), axis=1)
+    # result.to_excel(r'D:\李震祥\code\code\花木街道\人口数据处理\result\花木街道_人员信息_汇总结果2.xlsx'
+    #                 , encoding='utf-8', index=False)
+    #
+    # 花木街道汇总拆开
+    info_empty_result = result[result['居委'].isna()]
+    info_full_result = result[result['居委'].notna()]
+    info_empty_result.to_excel(r'D:\李震祥\code\code\花木街道\人口数据处理\result\花木街道_人员信息_未匹配_结果.xlsx', encoding='utf-8',
+                               index=False)
+    info_full_result.to_excel(r'D:\李震祥\code\code\花木街道\人口数据处理\result\花木街道_人员信息_匹配_结果.xlsx', encoding='utf-8',
+                              index=False)
