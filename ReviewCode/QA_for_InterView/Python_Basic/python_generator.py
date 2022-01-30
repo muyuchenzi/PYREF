@@ -1,3 +1,5 @@
+from itertools import islice
+from itertools import cycle
 assert 1 in [1, 2, 3]
 assert 1 not in [1, 2, 3]
 d = {1: 'foo', 2: 'bar', 3: 'qux'}
@@ -9,14 +11,12 @@ generator_alpha.__next__()
 generator_beta = iter(list_alpha)
 generator_beta.__next__()
 
-from itertools import cycle
 
 colors = cycle(['red', 'black', 'white', 'yellow'])
 colors_res = []
 for i in range(40):
     colors_res.append(next(colors))
 
-from itertools import islice
 
 colors_x = islice(colors_res, 0, 20)
 colors_x_res = []
@@ -36,3 +36,19 @@ my_test = my_gene()
 
 for i in my_test:
     print(i)
+
+# 生成一个斐波那契数列
+
+
+def fib(n):
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = a+b, a
+        yield a
+
+
+xx = fib(10)
+list_xx = []
+for i in xx:
+    list_xx.append(i)
+print(list_xx)
