@@ -28,14 +28,16 @@ def function_var(num_var, str_var, tuple_var, list_var, dict_var, set_var, DataF
     set_var.add("addValeu")
     DataFrame_res = DataFrame_var
     DataFrame_res.loc[0, 'one'] = "oneValueChanged"
-    print(num_res, str_res, tuple_res, list_res, dict_res, set_var, DataFrame_res)
+    print(num_res, str_res, tuple_res, list_res,
+          dict_res, set_var, DataFrame_res)
     return num_res, str_res, tuple_res, list_res, dict_res, set_var, DataFrame_res
 
 
 if __name__ == '__main__':
     """值类型和引用类型进行验证，"""
     num_var, str_var, tuple_var, list_var, dict_var, set_var, DataFrame_var = get_kinds_var()
-    print(num_var, str_var, tuple_var, list_var, dict_var, set_var, DataFrame_var)
+    print(num_var, str_var, tuple_var, list_var,
+          dict_var, set_var, DataFrame_var)
     num_res, str_res, tuple_res, list_res, dict_res, set_res, DataFrame_res = \
         function_var(num_var=num_var, str_var=str_var, tuple_var=tuple_var, list_var=list_var, dict_var=dict_var,
                      set_var=set_var,
