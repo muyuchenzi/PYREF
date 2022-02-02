@@ -13,7 +13,8 @@ for dir_path, sub_dir, file_name in os.walk(file_path):
 os.listdir(file_path)  # 查看当前文件夹下文件目录
 os.mkdir(file_path + '\\' + 'test')  # 新建文件夹
 os.path.isdir(r'E:\李震祥\temp\QA_for_InterView\Python_Advance\Data\temp')
-os.path.isfile(r'E:\李震祥\temp\QA_for_InterView\Python_Advance\file_and_path.py')  # 检查是文
+os.path.isfile(
+    r'E:\李震祥\temp\QA_for_InterView\Python_Advance\file_and_path.py')  # 检查是文
 # 件夹还是文件
 os.rename(r'E:\李震祥\temp\QA_for_InterView\Python_Advance\Data\test',  # 重命名文件或者文件夹
           r'E:\李震祥\temp\QA_for_InterView\Python_Advance\Data\test2')
