@@ -53,12 +53,11 @@ for i in xx:
     list_xx.append(i)
 print(list_xx)
 
-
 def noral_list(input_string):
     print(input_string)
     list_xx = []
-    for i in xx:
-        list_xx.append(i)
+    for j in xx:
+        list_xx.append(j)
 
 
 time_spend = timeit(lambda: noral_list("string is input"), number=20000)
@@ -113,16 +112,16 @@ if __name__ == '__main__':
     assert set_var == set_res
     # assert tuple_var == tuple_res
     assert DataFrame_res.equals(DataFrame_var)
-    assert DataFrame_var.index == DataFrame_res.index
-    assert list(DataFrame_var.columns) == list(DataFrame_res.columns)
-    print("this is vim shortcut exercise!!")
-    
     print("this is vim cw key  exercise!!")
-    print("this is vim cw key  exercise!!")
-    print("this is vim cw key  exercise!!")
-    print("this is vim cw key  exercise!!")
-    print("this is vim cw key  exercise!!")
-    print("this is vim cw key  exercise!!")
+    print("this is vim i  key  exercise!!")
+    print("this is vim i  key  exercise!!")
+    print("this is vim i  key  exercise!!")
+    print("this is vim i  key  exercise!!")
+    print("this is vim i  key  exercise!!")
+    print("this is ci  i  key  exercise!!")
+    print("this is vim i ")
 
+    for i in range(100):
+        print(i)
 
-
+    string_alha="<ttdfatdfadfa>lsit"
