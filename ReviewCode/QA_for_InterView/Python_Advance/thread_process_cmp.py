@@ -3,8 +3,10 @@ import threading
 from queue import Queue
 import time
 '''
-对于多线程多进程与常规办法的运算速度进行对比，
+对于多线程多进程与常规办法的运算速度进行对比，线程共享内存，进程需要对共享
+内存进行设置
 '''
+
 
 def cal_time(func):
     def wrapper():
@@ -63,7 +65,6 @@ def normal_cal():
     for i in range(1000000):
         res2 += i+i**2+i**3
     print(f"正常运算结果:{res+res2}")
-
 
 
 if __name__ == "__main__":

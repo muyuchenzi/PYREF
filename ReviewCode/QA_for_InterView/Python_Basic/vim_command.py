@@ -5,7 +5,12 @@ assert 1 in [1, 2, 3]
 # assert 1 not in [1, 2, 3]
 d = {1: 'foo', 2: 'bar', 3: 'qux'}
 assert 1 in d
-
+# fix: 设置
+# TODO:
+#FIXME
+#DEBGU
+#REVIEW
+# NOTE
 list_alpha = [1, 2, 3, 4, 5]
 generator_alpha = iter(list_alpha)
 generator_alpha.__next__()
@@ -23,7 +28,7 @@ for col in colors_x:
     colors_x_res.append(col)
 
 
-def my_gene():
+def gene_test():
     yield 1
     yield 2
     yield 3
@@ -31,7 +36,7 @@ def my_gene():
     yield 5
 
 
-my_test = my_gene()
+my_test = gene_test()
 
 for i in my_test:
     print(i)
@@ -53,6 +58,7 @@ for i in xx:
     list_xx.append(i)
 print(list_xx)
 
+
 def noral_list(input_string):
     print(input_string)
     list_xx = []
@@ -64,7 +70,6 @@ time_spend = timeit(lambda: noral_list("string is input"), number=20000)
 
 # 1、python 的参数传递 分为两种 i、值类型ii、应用类型，python常见的数据结构中，number string tuple 是值类型
 # list dict set DataFrame Series是引用类型 值类型是copy一个副本，引用类型是copy了一个引用，
-
 
 
 def get_kinds_var():
@@ -95,13 +100,16 @@ def function_var(num_var, str_var, tuple_var, list_var, dict_var, set_var, DataF
     print(num_res, str_res, tuple_res, list_res,
           dict_res, set_var, DataFrame_res)
     return num_res, str_res, tuple_res, list_res, dict_res, set_var, DataFrame_res
+
+
 if __name__ == '__main__':
     """值类型和引用类型进行验证，"""
     num_var, str_var, tuple_var, list_var, dict_var, set_var, DataFrame_var = get_kinds_var()
     print(num_var, str_var, tuple_var, list_var,
           dict_var, set_var, DataFrame_var)
     num_res, str_res, tuple_res, list_res, dict_res, set_res, DataFrame_res = \
-        function_var(num_var=num_var, str_var=str_var, tuple_var=tuple_var, list_var=list_var, dict_var=dict_var,
+        function_var(num_var=num_var, str_var=str_var, tuple_var=tuple_var, list_var=list_var,
+                     dict_var=dict_var,
                      set_var=set_var,
                      DataFrame_var=DataFrame_var)
     assert num_res == num_var
@@ -124,4 +132,4 @@ if __name__ == '__main__':
     for i in range(100):
         print(i)
 
-    string_alha="<ttdfatdfadfa>lsit"
+    string_alha = "<ttdfatdfadfa>lsit"

@@ -27,7 +27,8 @@ def job_lock(v, num,lock_v):
     lock_v.release()
 
 def multi_core_share_memory():
-    '''这里要注意，各个进程运算的开始，因为很多时候系统安排进程的时候不一定是alhpa 写的靠前就首先运行
+    '''这里要注意，各个进程运算的开始，因为很多时候系统安排进程的时候不一定是alhpa 
+    写的靠前就首先运行
     '''
     lock_v=mp.Lock()
     value = mp.Value('i',0)
