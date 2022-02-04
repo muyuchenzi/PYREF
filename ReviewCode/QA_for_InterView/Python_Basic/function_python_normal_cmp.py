@@ -9,6 +9,7 @@ def time_spend(func):
         print(f"{func}运行的时间为:{time_end-time_start}")
     return warpper
 
+
 def get_want(num):
     # num=2224
     str_num = list(str(num))
@@ -22,22 +23,24 @@ def get_want(num):
 @time_spend
 def normal():
     values = []
-    for i in range(1000, 3001):
+    for i in range(1000, 300000):
         s = str(i)
         if (int(s[0]) % 2 == 0) and (int(s[1]) % 2 == 0) and (int(s[2]) % 2 == 0) and (int(s[3]) % 2 == 0):
             values.append(s)
-    print("normal is end result->",values)
+    # print("normal is end result->", values)
     return values
+
 
 @time_spend
 def test_fun():
-    num_range = list(range(1000, 3000))
+    num_range = list(range(1000, 300000))
     result = filter(get_want, num_range)
     values = list(result)
-    print("test is end",values)
+    # print("test is end", values)
     return values
 
+
 if __name__ == "__main__":
-    test_fun_res=test_fun()
-    normal_fun_res=normal()
+    test_fun_res = test_fun()
+    normal_fun_res = normal()
     print('end')

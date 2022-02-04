@@ -7,9 +7,9 @@ d = {1: 'foo', 2: 'bar', 3: 'qux'}
 assert 1 in d
 # fix: 设置
 # TODO:
-#FIXME
-#DEBGU
-#REVIEW
+# FIXME
+# DEBGU
+# REVIEW
 # NOTE
 list_alpha = [1, 2, 3, 4, 5]
 generator_alpha = iter(list_alpha)
