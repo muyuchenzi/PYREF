@@ -68,7 +68,7 @@ def normal_cal():
 
 
 if __name__ == "__main__":
-    # sample_multi_peocessing()
-    # sample_mulit_thread()
-    # normal_cal()
+    sample_multi_peocessing()
+    sample_mulit_thread()
+    normal_cal()
     pass

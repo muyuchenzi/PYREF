@@ -46,4 +46,4 @@ def multi_core_share_memory():
 
 if __name__ == "__main__":
     multi_core()
-    multi_core_share_memory()
+    # multi_core_share_memory()
