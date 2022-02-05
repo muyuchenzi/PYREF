@@ -1,8 +1,4 @@
-from multiprocessing import Pool
-
-def  f(x):
-    return x*x
-if __name__=="__main__":
-    p=Pool(5)
-    res=p.map(f,[1,2,3])
-    print(res)
+from collections.abc import Iterable
+# import itertools from collections
+my_list=[i for i in range(6)]
+            print(isinstance(my_list,Iterable))
