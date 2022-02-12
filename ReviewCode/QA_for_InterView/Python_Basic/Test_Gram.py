@@ -1,13 +1,19 @@
-def solution(num_heads,num_legs):
-    sol='no solution'
-    for chick_head in range(num_heads+1):
-        rabit_head=num_heads-chick_head
-        if 2*chick_head+4*rabit_head==num_legs:
-            return chick_head,rabit_head
+import hashlib
+import random
 
-    return sol,sol
-num_had=35
-num_leg=94
-solut=solution(num_had,num_leg)
-print(solut)
+appid = '20220212001080952'
+secretKey = '7hmzzpojDNLIdUD5M'  # 填写你的密钥
+myurl = 'api.fanyi.baidu.com/api/trans/vip/translate'
+q = 'test'
+salt = random.randint(2333332, 3333332)
+from_text = "en"
+to_text = "zh"
+sign_b = appid + q + str(1435660288) + secretKey
+sign = hashlib.md5(sign_b.encode()).hexdigest()
 
+url = myurl + "?q=" + q + "&from=" + from_text + "&to=" + to_text + "&appid=" + appid + "&salt=" + str(
+    1435660288) + "&sign=" + sign
+print(url)
+q = 'test &from=en & to = zh & appid = 20220212001080952 & salt = 1435660288 & sign = 37302803335333c3162c772373cc35e0'
+x = 'q=apple&from=en&to=zh&appid=2015063000000001&salt=1435660288&sign=f89f9594663708c1605f3d736d01d2d4'
+y = 'q=test&from=en&to=zh&appid=20220212001080952&salt=1435660288&sign=37302803335333c3162c772373cc35e0'
