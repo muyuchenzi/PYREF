@@ -4,7 +4,9 @@ import queue
 import time
 import random
 
-
+'''
+#NOTE使用queue来进行使用多线程，多进程
+'''
 @blog_data.time_spend
 def multi_thread_craw():
     threads = []
