@@ -1,7 +1,10 @@
 import math
 from concurrent.futures import ThreadPoolExecutor,ProcessPoolExecutor
 from data.blog_spider import time_spend
-
+'''
+# NOTE 通过使用ThreadPoolExecuteor、ProcessPoolExceutor使用多进程，相对于Thread、Process
+中的Queue模块来说简便了不少,
+'''
 def is_prime(n):
     if n <= 1:
         return False
