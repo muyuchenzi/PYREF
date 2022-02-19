@@ -91,7 +91,10 @@ def group_by_func():
     df_pivot = df.pivot(index='省', columns='城市等级', values='订单数')
 
 
-def temp():
+def pivot_table():
+    '''#REVIEW
+    数据透视表就是以某一列为index，另一列或者几列为columns，进行数据统计。
+    '''
     df = pd.DataFrame({'foo': ['one', 'one', 'one', 'two', 'two',
                                'two'],
                        'bar': ['A', 'B', 'C', 'A', 'B', 'C'],

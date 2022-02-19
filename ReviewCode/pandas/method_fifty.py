@@ -1,16 +1,18 @@
+
 import pandas as pd
-import os
-print(os.getcwd())
-
-
-data = pd.read_csv('E:\李震祥\PYGIT\PYref\ReviewCode\pandas\Data\data.csv')
-# 查看数据
-print(data.head(10))
-print(data.tail())
-print(data.dtypes)
-gender_dict = {
-    "F": "女性",
-    "M": "男性"
-}
-data['gender'] = data.apply(lambda x: gender_dict.get(x['gender']), axis=1)
-print(data.head())
+import random 
+import numpy as np
+# 当前pandas 版本
+print(pd.__version__)
+# list创建Series
+arr = [i for i in range(10)]
+df = pd.Series(arr)
+# dict创建Series
+dict_key = [i for i in 'abcde']
+dict_value = arr.copy()
+dict_alpha = dict(zip(dict_key, dict_value))
+# print(dict_alpha)
+dates=pd.date_range('today',periods=6)
+num_arr=np.random.randn(6,4)
+print(num_arr)
+print(dates)
