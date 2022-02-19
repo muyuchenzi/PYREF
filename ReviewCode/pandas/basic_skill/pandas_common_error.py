@@ -3,7 +3,7 @@
 
 import pandas as pd
 
-df = pd.read_excel(r'E:\李震祥\temp\pandas\Data\contain_na_data.xlsx',
+df = pd.read_excel(r'E:\李震祥\PYGIT\PYref\ReviewCode\pandas\Data\contain_na_data.xlsx',
                    skiprows=3)
 df.dropna(how='all', axis=1, inplace=True)
 df.fillna(method='ffill', axis=0, inplace=True)
