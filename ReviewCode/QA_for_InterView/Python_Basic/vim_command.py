@@ -7,7 +7,8 @@ assert 1 in d
 # fix: 设置
 # TODO:
 # FIXME
-# DEBGU
+# REVIEW
+# NOTE
 
 # 生成一个斐波那契数列
 
@@ -18,12 +19,18 @@ def fib(n):
         a, b = a + b, a
         yield a
 
-
 xx = fib(10)
 list_xx = []
 for i in xx:
     list_xx.append(i)
 print(list_xx)
+
+
+def noral_list(input_string):
+    print(input_string)
+    list_xx = []
+    for j in xx:
+        list_xx.append(j)
 
 
 def noral_list(input_string):
@@ -80,9 +87,6 @@ def function_var(num_var, str_var, tuple_var, list_var, dict_var, set_var, DataF
     list_res = list_var
     list_res.extend([3, 2, 1, 0])
 
-
-
-
     DataFrame_res.loc[0, 'one'] = "oneValueChanged"
     print(num_res, str_res, tuple_res, list_res,
           dict_res, set_var, DataFrame_res)
@@ -109,7 +113,7 @@ if __name__ == '__main__':
     print("this is vim cw key  exercise!!")
     print("this is vim i  key  exercise!!")
     print("this is vim i  key  exercise!!")
-    print("this is vim i  key  exercise!!")
+    print("this is vim i  vim  exercise!!")
     print("this is vim i  key  exercise!!")
     print("this is vim i  key  exercise!!")
     print("this is ci  i  key  exercise!!")
