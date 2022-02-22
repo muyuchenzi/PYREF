@@ -90,10 +90,12 @@
 # sr.remove((2))
 # NOTE30、删除重复元素，这个题目跟上面的很相似
 import random
+
 list_alpha = [random.randint(1, 10) for _ in range(20)]
 print(set(list_alpha))
-res_alpha=[]
+res_alpha = []
 for li in list_alpha:
     if li not in res_alpha:
         res_alpha.append(li)
 print(res_alpha)
+len([])
