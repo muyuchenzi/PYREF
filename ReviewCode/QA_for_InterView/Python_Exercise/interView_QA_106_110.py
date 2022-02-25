@@ -161,67 +161,114 @@
 # 这里是由于没有把queue全部取出来，而是建了一个线程才存放一次，这样
 #就是导致最开始出错的原因，
 
+# import time
+# import threading
+# import multiprocessing as mp
+# import queue
+
+
+# def producer(pro_line, cust_line):
+#     while True:
+#         if not pro_line.empty():
+#             pro_get = pro_line.get()
+#             produce_list = [i for i in range(pro_get)]
+#             time.sleep(1)
+#             cust_line.put(produce_list)
+#         else:
+#             break
+
+
+# def customer(cust_line):
+#     while True:
+#         if not cust_line.empty():
+#             cust_get = cust_line.get()
+#             result = [str(i) for i in cust_get]
+#             time.sleep(0.2)
+#             print(result)
+#         # return result
+#         else:
+#             break
+
+
+# def func_entry():
+#     produce_line = queue.Queue()
+#     custome_line = queue.Queue()
+# #   NOTE 入口数据
+#     list_alpha = [i for i in range(10, 25)]
+#     # 将数据放到生产者队列
+#     for p_line in list_alpha:
+#         produce_line.put(p_line)
+#     # 使用生产者对数据进行加工
+#     produce_thread_list = []
+#     for _ in range(6):
+#         pro_td = threading.Thread(target=producer, args=(produce_line, custome_line))
+#         pro_td.start()
+#         produce_thread_list.append(pro_td)
+#     [pro_thread.join() for pro_thread in produce_thread_list]
+#     # 消费者对数据进行处理
+#     custome_thread_list = []
+#     for _ in range(4):
+#         cus_td = threading.Thread(target=customer, args=(custome_line,))
+#         cus_td.start()
+#         custome_thread_list.append(cus_td)
+#     print("----")
+#     # print("__end__")
+#     [cus_thread.join() for cus_thread in custome_thread_list]
+
+
+#     # 对结果进行读取
+#     # final_res=[]
+#     # for _ in range(4):
+#     #     final_res.append(custome_line.get())
+#     # print("end")
+#     # print(final_res)
+#     print("end")
+# if __name__ == "__main__":
+#     func_entry()
+
+#NOTE 进程线程池
 import time
 import threading
 import multiprocessing as mp
-import queue
+from concurrent.futures import ThreadPoolExecutor,ProcessPoolExecutor
 
+def is_prim(n):
+    if n<2:
+        return False
+    else:
+        for i in range(2,n):
+            if n%i==0:
+                return False
+        return True
+    
 
-def producer(pro_line, cust_line):
-    while True:
-        if not pro_line.empty():
-            pro_get = pro_line.get()
-            produce_list = [i for i in range(pro_get)]
-            time.sleep(1)
-            cust_line.put(produce_list)
+def work_alpha(n):
+    '''找到n以内的所有质数'''
+    prim_list=[]
+    for i in range(n):
+        if is_prim(i):
+            prim_list.append(i)
         else:
-            break
+            pass
+    return prim_list
 
 
-def customer(cust_line):
-    while True:
-        if not cust_line.empty():
-            cust_get = cust_line.get()
-            result = [str(i) for i in cust_get]
-            time.sleep(0.2)
-            print(result)
-        # return result
-        else:
-            break
+def work_beta(prim_list):
+    """
+    把所有质数统计，得到数据，根据质数list的长度，然后休眠秒/5,简单返回一个list长"""
+
+    if prim_list:
+        time.sleep(3)
+    return len(prim_list)
+
+        
+def run():
+    entry_data=[i for i in range(100,120)]
+    with ThreadPoolExecutor() as pool:
+        prim_list= pool.map(work_alpha,entry_data)
+        print(work_beta(list(prim_list))) 
 
 
-def func_entry():
-    produce_line = queue.Queue()
-    custome_line = queue.Queue()
-#   NOTE 入口数据
-    list_alpha = [i for i in range(10, 25)]
-    # 将数据放到生产者队列
-    for p_line in list_alpha:
-        produce_line.put(p_line)
-    # 使用生产者对数据进行加工
-    produce_thread_list = []
-    for _ in range(6):
-        pro_td = threading.Thread(target=producer, args=(produce_line, custome_line))
-        pro_td.start()
-        produce_thread_list.append(pro_td)
-    [pro_thread.join() for pro_thread in produce_thread_list]
-    # 消费者对数据进行处理
-    custome_thread_list = []
-    for _ in range(4):
-        cus_td = threading.Thread(target=customer, args=(custome_line,))
-        cus_td.start()
-        custome_thread_list.append(cus_td)
-    print("----")
-    # print("__end__")
-    [cus_thread.join() for cus_thread in custome_thread_list]
+if __name__=="__main__":
+    run()
 
-
-    # 对结果进行读取
-    # final_res=[]
-    # for _ in range(4):
-    #     final_res.append(custome_line.get())
-    # print("end")
-    # print(final_res)
-    print("end")
-if __name__ == "__main__":
-    func_entry()
