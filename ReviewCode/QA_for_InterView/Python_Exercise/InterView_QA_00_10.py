@@ -76,5 +76,5 @@
 # sorted_alist=sorted(alist,key=lambda x:x['age'],reverse=False)
 # print(sorted_alist)
 #Q&A 10、这个是一个小的bug 如果使用切片切不到不会产生indexError会产生一个空白list,很容易产生BUG找不到。
-list = ['a','b','c','d','e']
-print(list[10:])
+# list = ['a','b','c','d','e']
+# print(list[10:])
