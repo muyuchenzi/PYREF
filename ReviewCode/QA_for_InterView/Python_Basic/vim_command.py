@@ -114,8 +114,6 @@ if __name__ == '__main__':
     print("this is vim i  key  exercise!!")
     print("this is vim i  key  exercise!!")
     print("this is vim i  vim  exercise!!")
-    print("this is vim i  key  exercise!!")
-    print("this is vim i  key  exercise!!")
     print("this is ci  i  key  exercise!!")
     print("this is vim i ")
 
