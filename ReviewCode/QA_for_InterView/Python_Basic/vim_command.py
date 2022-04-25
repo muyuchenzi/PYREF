@@ -1,4 +1,4 @@
-from timeit import timeit
+from timeit import time
 import pandas as pd
 assert 1 in [1, 2, 3]
 # assert 1 not in [1, 2, 3]
@@ -18,6 +18,7 @@ def fib(n):
     for _ in range(n):
         a, b = a + b, a
         yield a
+
 
 xx = fib(10)
 list_xx = []
@@ -109,7 +110,7 @@ if __name__ == '__main__':
     assert dict_var == dict_res
     assert set_var == set_res
     # assert tuple_var == tuple_res
-    assert DataFrame_res.equals(DataFrame_var)
+    assert thisFrame_res.equals(DataFrame_var)
     print("this is vim cw key  exercise!!")
     print("this is vim i  key  exercise!!")
     print("this is vim i  key  exercise!!")
@@ -119,5 +120,5 @@ if __name__ == '__main__':
 
     for i in range(100):
         print(i)
-
-    string_alha = ("stirng_sts")
+    stirng = "xx"
+    string_alha = ("tirng_sts")
