@@ -13,3 +13,10 @@ print(3 in list_alpha)
 print('a' in dict_alpha)
 
 # 身份运算符
+list_alpha=[1,2,3]
+list_beta= [1,2,3]
+print(list_alpha is list_beta)
+print(list_alpha == list_beta)
+import random
+print(random.shuffle(list_alpha))
+print(list_alpha)
