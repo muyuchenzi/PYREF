@@ -3,3 +3,13 @@
 # 引用类型 list  dict set
 # 字符串的比较是ASCII码的比较
 
+# 成员运算符
+list_alpha=[i for  i in range(10)]
+list_beta=[i for i in 'abcdefg']
+
+dict_alpha=set(list_beta)
+print(dict_alpha)
+print(3 in list_alpha)
+print('a' in dict_alpha)
+
+# 身份运算符
