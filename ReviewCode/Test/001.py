@@ -1,18 +1,17 @@
-# python 分支、循环、表达式
-# 表达式
+# python 循环
+# 是解决问题的一个思路
+# while 循环特别注意不要死循环
 
-user_names=['muyu','chenzi']
-user_passwords=[123,456]
-user_accounts=dict(zip(user_names,user_passwords))
 
-def account_login(user_name,user_password):
-    if user_name in user_names:
-        if user_password== user_accounts.get(user_name):
-            print("login success")
-        else:
-            print("your password is wrong")
+
+def func_alpha():
+    counter=20
+    while counter:
+        print(counter)
+        counter-=1
     else:
-        print("check your name plz")
+        print("end")
+    
 
-if __name__=="__main__":
-    account_login("chenz",456)
+if __name__ == "__main__":
+    func_alpha()
