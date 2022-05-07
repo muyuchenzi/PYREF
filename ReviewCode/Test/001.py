@@ -20,3 +20,6 @@ print(list_alpha == list_beta)
 import random
 print(random.shuffle(list_alpha))
 print(list_alpha)
+# 类型判断
+
+print(isinstance([1,2],list))
