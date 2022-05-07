@@ -1,25 +1,25 @@
-# python 里的值类型与引用类型
-# 值类型 string int tuple 
-# 引用类型 list  dict set
-# 字符串的比较是ASCII码的比较
-
-# 成员运算符
-list_alpha=[i for  i in range(10)]
-list_beta=[i for i in 'abcdefg']
-
-dict_alpha=set(list_beta)
-print(dict_alpha)
-print(3 in list_alpha)
-print('a' in dict_alpha)
-
-# 身份运算符
-list_alpha=[1,2,3]
-list_beta= [1,2,3]
-print(list_alpha is list_beta)
-print(list_alpha == list_beta)
+# python 分支、循环、表达式
+# 表达式
+from random import randint
+from random import choice
+from random import randrange
+from random import uniform
 import random
-print(random.shuffle(list_alpha))
-print(list_alpha)
-# 类型判断
 
-print(isinstance([1,2],list))
+print(randint(1,10))# 查找一个整数范围内的整数
+print(choice([i for i in range(10)]))
+print(randrange(1,100,3))
+print(round(uniform(1,10),3))
+print("-"*30)
+
+re_alpha=random.choices([i for i in range(10)],weights=None,k=2)
+print(re_alpha)
+
+list_alpha = [i for i in range(9)]
+list_beta = ['one', 'two', 'three', 'four']
+list_gamma = ['one', [1, 3, 4], True, 3, {'a': 1, 'b': 2}]
+list_delta = [i for i in "hello world python"]
+
+dict_res=dict(zip(list_beta,list_alpha))
+print(dict_res)
+print(dict_res.get('ones','sss'))# python dict获取字典默认值
