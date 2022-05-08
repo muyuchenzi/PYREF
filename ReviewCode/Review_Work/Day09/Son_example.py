@@ -31,5 +31,7 @@ class Student(Person, Annimal):
 
 if __name__ == '__main__':
     s1 = Student('chenzi', 14, 77, True, False)
+    print("-"*30)
     s1.print_file()
+    print("-"*30)
     print(Student.mro())
