@@ -27,5 +27,5 @@ class Third(First, Second):
 print(Third.mro())
 xx = Third('chenzi', 12, 44)
 # xx.get_value()
-# if __name__ == '__main__':
-#     # xx = Third('chenzi', 12, 34)
+if __name__ == '__main__':
+    xx = Third('chenzi', 12, 34)

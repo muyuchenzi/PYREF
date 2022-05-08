@@ -24,10 +24,10 @@ class Student():
 
 if __name__ == '__main__':
     student1 = Student('chenzi', 11)
-    student1.__score
+    # student1.__score
     student1.modify_score(59)
-    student1.__score = 0
-    student1.__score
+    student1.__score = 1
+    print(student1.__score)
     # student1.cal_num_self()
     # student2 = Student("muyu", 12)
     # student2.cal_num_self()
