@@ -6,6 +6,7 @@ class Student():
     def __init__(self, name, age):
         self.name = name
         self.age = age
+        self.__private=0
         Student.sum += 1
 
     def frofile_print(self):
@@ -34,4 +35,6 @@ if __name__ == '__main__':
     muyu.frofile_print()
     muyu.class_print()
     print("-"*30)
-    # print(Student.__number)
+    print(chenzi.__dict__)
+    Student._Student__number=100
+    print(Student.__dict__)
