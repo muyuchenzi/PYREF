@@ -2,7 +2,7 @@ class Student():
     # name=""
     # password="abc123"
     sum = 0
-
+    __number=1
     def __init__(self, name, age):
         self.name = name
         self.age = age
@@ -15,8 +15,9 @@ class Student():
         # print(f"创建了{sum}个对象！")
 
     @classmethod
-    def class_print(cls, self):
+    def class_print(cls):
         print(cls.sum)
+        print(f"类的私有变量{cls.__number}.")
 
     @staticmethod
     def static_print():
@@ -32,3 +33,5 @@ if __name__ == '__main__':
     muyu = Student("muyu", 13)
     muyu.frofile_print()
     muyu.class_print()
+    print("-"*30)
+    # print(Student.__number)
