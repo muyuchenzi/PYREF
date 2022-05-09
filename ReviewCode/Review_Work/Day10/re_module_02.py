@@ -15,7 +15,7 @@ beta_result3 = re.findall(r'python{1,2}?', str_beta)
 
 qq_number = '1234566787'
 qq_result = re.findall(r'\d{4,11}', qq_number)
-qq_result1 = re.findall(r'^\d{4,9}$', qq_number)  # 边界匹配，以^开头 $结束
+qq_result1 = re.findall(r'\d{4,5}7$', qq_number)  # 边界匹配，以^开头 $结束
 qq_result2 = re.findall(r'^1\d{4,9}$', qq_number)  # 边界匹配，以^开头 $结束
 
 str_gamma = 'pythonpythonpythonpythonpythonpython'

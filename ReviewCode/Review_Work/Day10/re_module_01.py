@@ -13,12 +13,13 @@ str_alpha = "C|C++|Java|Python|JavaScript"
 print('python' in str_alpha.lower())
 print(str_alpha.index('Python'))
 pattern_result = re.findall('Python', str_alpha)
+print(pattern_result)
 if len(pattern_result) > 0:
     print('发现')
 # todo 元字符
 # .除了换行符\n以外的所有字符
 # 数字元字符
-str_beta = 'C8|67C+34+|3Ja#xva6Python4Java888Script'
+str_beta = 'C8|67C+34+|3Ja#xva6Python4Java868Script'
 result_number = re.findall(r'\d\d', str_beta)
 result_no_number = re.findall(r'\D', str_beta)
 
