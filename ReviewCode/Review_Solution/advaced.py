@@ -5,3 +5,4 @@ json_str = '{"name":"qiye","age":15}'
 
 stu = json.loads(json_str)
 print(type(stu))
+
