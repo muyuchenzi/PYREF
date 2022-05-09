@@ -1,6 +1,6 @@
 import re
 
-# 数量词* + ? {}
+# 数量词 * + ? {}
 str_alpha = 'python 23 javaScript rube89php'
 alpha_result = re.findall('[a-zA-Z]+', str_alpha)  # +符号-->1到无穷
 alpha_result2 = re.findall('[a-zA-Z]{3,10}', str_alpha)  # {}符号 -->3次-10次 默认贪婪模式
