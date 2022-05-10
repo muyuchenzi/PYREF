@@ -1,40 +1,31 @@
-class Student():
-    # name=""
-    # password="abc123"
-    sum = 0
-    __number=1
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
-        self.__private=0
-        Student.sum += 1
+from enum import Enum
 
-    def frofile_print(self):
-        print(self.name)
-        # print(self.password)
-        print(self.age)
-        # print(f"创建了{sum}个对象！")
-
-    @classmethod
-    def class_print(cls):
-        print(cls.sum)
-        print(f"类的私有变量{cls.__number}.")
-
-    @staticmethod
-    def static_print():
-        print("this is staticmethod")
-# 方法跟函数，方法其实是在设计方面，而是一种面向对象的结果，而函数就是一个解决问题的途径
-# 面向对象方法就是把数据和对数据的操作封装在一起，这个就是很容易理解
+yellow = 1
+green = 2
 
 
-if __name__ == '__main__':
-    chenzi = Student("chenzi", 12)
-    chenzi.frofile_print()
-    chenzi.class_print()
-    muyu = Student("muyu", 13)
-    muyu.frofile_print()
-    muyu.class_print()
+color = {"yellow": 1, "green": 2}
+
+
+class Color(object):
+    yellow = 1
+    green = 2
+
+class VIP(Enum):
+    '''
+    枚举类：不重复，不能修改
+    '''
+    YELLOW=1
+    GREEN=2
+
+
+if __name__=="__main__":
+    #使用常用的类变量
+    color_alpha=Color()
+    print(color_alpha.green)
+    color_alpha.green=3
+    print(color_alpha.green)
     print("-"*30)
-    print(chenzi.__dict__)
-    Student._Student__number=100
-    print(Student.__dict__)
+    print(VIP.GREEN.value)
+    VIP.GREEN.value=10
+
