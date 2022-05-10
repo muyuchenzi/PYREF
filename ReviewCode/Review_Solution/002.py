@@ -1,32 +1,34 @@
-origin = 0
+import copy
+from functools import reduce
 
 
-# def go(step):
-#     global origin
-#     new_ops = origin+step
-#     origin = new_ops
-#     return new_ops
-
-# print(go(2))
-# print(go(3))
-# print(go(6))
+def add(x):
+    return x[0]+x[1]
 
 
-def travel(pos):
-    def day(step):
-        nonlocal pos
-        new_ops = pos+step
-        pos = new_ops
-        return new_ops
-    return day
+list_alpha = [[1, 2], [3, 4], [10, 11]]
+list_beta = copy.deepcopy(list_alpha)
+print(list_beta)
+
+result = map(lambda x: x[0]+x[1], list_alpha)
+print(list(result))
+
+print("---"*10)
+res = map(lambda x, y: [x[0]+y[0], x[1]+y[1]], list_alpha, list_beta)
+print(list(res))
 
 
-monday = travel(0)
-print(monday(4))
-print(monday(4))
-print(monday(4))
+list_gamma = [i for i in range(20)]
 
-wenday=travel(100)
-print(wenday(100))
-print(wenday(100))
-print(wenday(100))
+res_alpha = filter(lambda x: x > 10, list_gamma)
+print(list(res_alpha))
+print(reduce(lambda x, y: x+y, list_gamma))
+
+# 三元表达式
+
+num_alpha = 0 if 3 < 2 else 1
+print(num_alpha)
+
+list_x = [i for i in range(10)]
+
+print(list(map(lambda x: x*x, list_x)))
