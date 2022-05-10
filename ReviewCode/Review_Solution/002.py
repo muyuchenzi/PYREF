@@ -1,37 +1,39 @@
-from enum import Enum
-
-yellow = 1
-green = 2
+# 装饰器
+import time
 
 
-color = {"yellow": 1, "green": 2}
+def decorator(func):
+    def wrapper(number):
+        time_start = time.time()
+        reuslt=func(number)
+        time_end = time.time()
+        print(f"函数运行消耗了{time_end-time_start}s！,总数为：{reuslt}")
+
+    return wrapper
 
 
-class Color(object):
-    yellow = 1
-    green = 2
 
-class VIP(Enum):
-    '''
-    枚举类：不重复，不能修改
-    '''
-    YELLOW=1
-    GREEN=2
+def isprime(num):
+    if num < 2:
+        return False
+    else:
+        for i in range(2, num):
+            if num % i == 0:
+                return False
+        return True
+@decorator
+def prime_nums(number):
+    # time_start=time.time()
+    count=0
+    for i in range(2,number):
+        if isprime(i):
+            count+=1
+            # time.sleep(1)
+            print(i)
+    return count
+    # time_end=time.time()
+    # print(f"总共花费了{time_end-time_start}s!")
 
-
-if __name__=="__main__":
-    #使用常用的类变量
-    color_alpha=Color()
-    print(color_alpha.green)
-    color_alpha.green=3
-    print(color_alpha.green)
-    print("-"*30)
-    print(VIP.GREEN.value)
-    # VIP.GREEN.value=10
-    result=VIP.GREEN==VIP.YELLOW
-    print(result)
-    print(VIP.__members__)
-    print(VIP.__members__.items())
-    print("-"*30)
-    for vip in VIP.__members__.items():
-        print(vip)
+if __name__ == "__main__":
+    prime_nums(10000)
+    # print(isprime(34))
