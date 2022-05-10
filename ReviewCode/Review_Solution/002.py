@@ -27,5 +27,11 @@ if __name__=="__main__":
     print(color_alpha.green)
     print("-"*30)
     print(VIP.GREEN.value)
-    VIP.GREEN.value=10
-
+    # VIP.GREEN.value=10
+    result=VIP.GREEN==VIP.YELLOW
+    print(result)
+    print(VIP.__members__)
+    print(VIP.__members__.items())
+    print("-"*30)
+    for vip in VIP.__members__.items():
+        print(vip)
