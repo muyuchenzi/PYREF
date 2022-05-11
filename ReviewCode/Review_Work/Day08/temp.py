@@ -58,5 +58,5 @@ def function_mulit_result(list_input1=[1, 2, 34], list_input_2=['x', 'y', 'z'], 
 xx = function_mulit_result([1, 23], ['x', 'x'], 3, a=1, b=3)
 
 if __name__ == '__main__':
-    # print(add_function(input_list_1=[1, 2, 3, 4], input_list_2=['x', 'y', 'z']))
+    print(add_function(input_list_1=[1, 2, 3, 4], input_list_2=['x', 'y', 'z']))
     sum_result = recursion_function(list_input)

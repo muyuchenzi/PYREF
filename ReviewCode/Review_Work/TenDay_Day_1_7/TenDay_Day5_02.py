@@ -22,3 +22,6 @@ y = "a" or "b"
 
 if "a" and "b":
     print("this is happened")
+
+num_a=12 or 11
+print(num_a)

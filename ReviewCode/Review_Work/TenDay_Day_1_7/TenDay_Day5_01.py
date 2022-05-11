@@ -9,6 +9,7 @@ list_alpha = [i for i in range(5)]
 list_beta = [i for i in 'list_test']
 list_test = list_alpha * 3 + list_beta
 list_alpha = ['a', 'b'] +[1, 2]
+print(lisa)
 
 # 值类型与引用类型
 a = 1
@@ -20,9 +21,9 @@ b_alpha = a_alpha
 a_alpha[1] = [1, 3]
 
 
-# Todo 变量的值类型和引用类型的区别
-# Todo int,str,tuple是值类型，list set dict 是引用类型
-# todo 值类型不可改，直接绑定内存地址，而引用类型是给了一块地址，
+# TODO 变量的值类型和引用类型的区别
+# TODO int,str,tuple是值类型，list set dict 是引用类型
+# TODO 值类型不可改，直接绑定内存地址，而引用类型是给了一块地址，
 
 
 def func_alpha(list_input):
