@@ -18,4 +18,8 @@
 
 
 # TODO 写理解
+# REVIEW 需要重新理解
+# NOTE 这里可能有点重要
+# FIXME bug需要修改
+# Q&A 这里需要查询
 #  this is sub title

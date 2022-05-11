@@ -1,6 +1,17 @@
 # Python 数据类型--------数字
 
-# todo int str list tuple dict set bool
+# Python 的类型总共有两种：值类型和引用类型
+
+# 值类型：int string tuple 
+# 引用类型：dict list set 
+
+# 整数的切
+# 进制的表示 0110表示二进制。12表示十进制，
+#0b是二进制，0o是八进制 0x十六进制
+# 进制的切换bin，oct，hex,int
+
+
+# TODO int str list tuple dict set bool
 #  bin hex int oct
 #  0b 0x oo
 
@@ -29,8 +40,7 @@ oct()
 hex()
 
 # # bool类型 空字符串，空tuple,空列表,空字典,None值
-
-# todo bool类型判断 --TRUE or False 0 None [] {} () ""
+# bool 类型中False 中常见的状况：数字里的0,string里的'',list中的[],dict中的{},tuple里的(),还有一个None
 bool(0)
 bool("")
 bool(())
@@ -46,6 +56,7 @@ print(2 // 2)
 print(1 // 2)
 print(3 % 2)
 
+result=divmod(10,3)
 # python 进制  二进制 十进制 八进制
 
 
@@ -63,7 +74,7 @@ alpha\n
 beta\t
 gamma 
 delta'''
-str_beta='alpha\n' \
-         'beta\r' \
-         'gamma' \
-         'delta' \
+str_beta = 'alpha\n' \
+           'beta\r' \
+           'gamma' \
+           'delta'

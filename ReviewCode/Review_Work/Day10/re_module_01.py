@@ -16,7 +16,7 @@ pattern_result = re.findall('Python', str_alpha)
 print(pattern_result)
 if len(pattern_result) > 0:
     print('发现')
-# todo 元字符
+# todo 元字
 # .除了换行符\n以外的所有字符
 # 数字元字符
 str_beta = 'C8|67C+34+|3Ja#xva6Python4Java868Script'
