@@ -48,7 +48,25 @@ def get_max(x, y):
         print(f"最大公约数{max_list[len(max_list)-1]}")
         print(f"最小公倍数{x*y/max_list[len(max_list)-1]}")
 
+def my_func():
+    for i in  range(100,1000):
+        low=i%10 #个位数
+        mid=i//10%10
+        high=i//100
+        if i == low**3+mid**3+high**3:
+            print(i)
+    
+
+def fun_c():
+    for x in range(0,20):
+        for y in range(0,34):
+            z=100-x-y
+            if 5*x+y*3+z/3==100:
+                print(x,y,z)
+
 
 if __name__ == "__main__":
-    x, y = input_func()
-    get_max(x, y)
+    # x, y = input_func()
+    # get_max(x, y)
+    my_func()
+    fun_c()
