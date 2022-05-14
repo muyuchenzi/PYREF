@@ -1,5 +1,7 @@
 import os
 from functools import reduce
+from string import ascii_lowercase
+from string import digits
 class Solution(object):
     
     @staticmethod
@@ -36,15 +38,14 @@ class Solution(object):
         print(reduce(lambda x,y :x+y,num_list))
 
     @staticmethod
-    def temp():
-        a=[i for i in range(10)]
-        print(id(a))
-        for i in a[:]:
-            if i>5:
-                pass
-            else:
-                a.remove(i)
-        print(a)
+    def get_missing_letter(a):
+        s1=set(ascii_lowercase)
+        s2=set(a)
+        print("------")
+        print("".join(sorted(list(s1-s2))))
+        
+    
+        
 if __name__=="__main__":
     s=Solution()
     result=s.reverse(-120)
@@ -52,6 +53,6 @@ if __name__=="__main__":
     dir_path=r'E:\李震祥\PYGIT\PYref\ReviewCode\QA_for_InterView\Python_Exercise'
     s.get_pyfiles(dir_path,'.py')
     s.sum([i for i in range(200)])
-    s.temp()
+    s.get_missing_letter("python")
 
             
