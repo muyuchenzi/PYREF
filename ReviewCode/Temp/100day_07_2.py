@@ -63,15 +63,19 @@ def max_two():
     设计一个函数返回传输列表最大和第二大元素的值
     '''
 
-def is_leap_year():
-    '''
-    '''
-    pass
+def number_day_of_year(year=1999,month=7,day=21):
+    import datetime
+    date_input=datetime.date(year=year,month=month,day=day)
+    date_start=datetime.date(year=year,month=1,day=1)
+    print((date_input-date_start).days+1)
+
+    
 
 if __name__=="__main__":
     # main()
-    generate_code()
+    # generate_code()
     # ss="E:\李震祥\PYGIT\PYref\ReviewCode\Temp\test"
     # print(os.walk)
     # get_file_end()
-    max_two()
+    # max_two()
+    number_day_of_year()
