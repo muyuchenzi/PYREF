@@ -34,6 +34,17 @@ class Solution(object):
     def sum(num_list):
         print(sum(num_list))
         print(reduce(lambda x,y :x+y,num_list))
+
+    @staticmethod
+    def temp():
+        a=[i for i in range(10)]
+        print(id(a))
+        for i in a[:]:
+            if i>5:
+                pass
+            else:
+                a.remove(i)
+        print(a)
 if __name__=="__main__":
     s=Solution()
     result=s.reverse(-120)
@@ -41,5 +52,6 @@ if __name__=="__main__":
     dir_path=r'E:\李震祥\PYGIT\PYref\ReviewCode\QA_for_InterView\Python_Exercise'
     s.get_pyfiles(dir_path,'.py')
     s.sum([i for i in range(200)])
+    s.temp()
 
             
