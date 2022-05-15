@@ -4,28 +4,29 @@ from string import ascii_lowercase
 from string import digits
 from collections import Counter
 
-class Solution(object):
-    
-    def temp(slef,str_data):
-        dict_str={}
-        for i in str_data:
-            dict_str[i]=dict_str.get(i,0)+1
-        return dict_str
-    
-    
-    def main_in(self):
-        dict_str=self.temp("AABBCCCADDDDDDDDDDD")
-        str_count_data=""
-        for k,v in dict_str.items():
-            str_count_data+=k+str(v)
-        print(str_count_data)
 
-    str_in="AABBCCCADDDDDDDDDDD"
-    count_res=Counter(str_in).most_common()
-    result="".join(map(lambda x:x[0]+str(x[1]),count_res))
-    print(result)
-    
+class Solution(object):
+    # 类方法，是指一般使用@classmethod作为装饰器使用，形参为cls,一般类可以直接调用，但是实例也能调用
+    # 实例方法,是类里面的常见方法，不需要装饰器，形参为self,一般用实例进行直接调用，类不能调用
+    # 静态方法，这个跟平时常用的函数类似，类跟实例都能调用，采用@staticmethod，没有形式参数，作为一般函数。
+    string_ss = 'abc'
+
+    def test(self, num):
+        global string_ss
+        if num > 50:
+            return True
+        else:
+            return False
+
+    def temp(self):
+        list_alpha = [i for i in range(100)]
+        res = filter(self.test, list_alpha)
+        # print(list(res))
+
+    ss=globals()
+    print(ss)
+
 if __name__ == "__main__":
     s = Solution()
-    s.main_in()
+    s.temp()
     
