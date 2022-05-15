@@ -2,7 +2,7 @@ import os
 from functools import reduce
 from string import ascii_lowercase
 from string import digits
-
+from collections import Counter
 
 class Solution(object):
     
@@ -20,9 +20,11 @@ class Solution(object):
             str_count_data+=k+str(v)
         print(str_count_data)
 
-
-        
-        
+    str_in="AABBCCCADDDDDDDDDDD"
+    count_res=Counter(str_in).most_common()
+    result="".join(map(lambda x:x[0]+str(x[1]),count_res))
+    print(result)
+    
 if __name__ == "__main__":
     s = Solution()
     s.main_in()
