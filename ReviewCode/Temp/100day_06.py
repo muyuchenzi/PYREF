@@ -11,11 +11,3 @@ def add(*args):
 
 print(add(1,2))
 
-
-def temp(m,n):
-    res_m=reduce(lambda x,y:x*y,m)
-    res_n=reduce(lambda x,y:x+y,n)
-    print(res_m)
-    print(res_n)
-
-temp([i for i in range(10)],[i for i in range(20)])
