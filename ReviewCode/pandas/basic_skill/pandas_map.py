@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv(r'E:\李震祥\temp\pandas\Data\各省市订单数据.csv',
+df = pd.read_csv(r'E:\李震祥\PYGIT\PYref\ReviewCode\pandas\Data\各省市订单数据.csv',
                  engine='python', encoding='utf-8')
 
 dict_alpha = {'华南': 'x',

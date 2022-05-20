@@ -31,5 +31,18 @@ print(np.nonzero(d))
 np.random.shuffle(d)
 print("-"*20)
 print(d)
-e=np.sort(d,axis=1)
+e = np.sort(d, axis=1)
 print(e)
+# axis 轴 axis=0 是针对index (也就是行之间计算，得到的是列的值)
+# 同理 axis=1是针对columns计算(也就是列之间计算，得到的是行的值)
+
+matrix = np.arange(0, 12).reshape(3, 4)
+print(matrix)
+# [[ 0  1  2  3]
+#  [ 4  5  6  7]
+#  [ 8  9 10 11]]
+
+print(np.sum(matrix, axis=0))
+# [12 15 18 21]
+print(np.sum(matrix, axis=1))
+# [ 6 22 38]
