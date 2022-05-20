@@ -13,3 +13,25 @@ df[df['包邮率'] > 0.95]['区域'] = "高包邮率"
 # get得到的结果可能是一个view 也可能是一个copy，所以发出警告，也就是可能是在元数据上改，也可能是复制
 # 新的数据后改，解决办法就是使用loc来把两步变成一步
 df.loc[df['包邮率'] > 0.95, "区域"] = "高包邮率"
+
+# axis的理解
+# axis =0
+# 如果是单行操作，就是指某一行，如果是聚合操作，就是指跨行cross rows
+
+# axis=1
+# 如果是单列操作，就是指某一列，如果是聚合操作，就是指跨列cross columns
+
+# 按照哪个axis 就是这个axis要动起来(类似被for遍历），其他的axis保持不动。
+import numpy as np
+
+df = pd.DataFrame(np.arange(12).reshape(3, 4), columns=[i for i in "ABCD"])
+
+# 单行或者单列操作
+df.drop(columns=['A'], inplace=True, axis=1)
+df.drop(index=1, inplace=True, axis=0)
+
+df = pd.DataFrame(np.arange(12).reshape(3, 4), columns=[i for i in "ABCD"])
+# 跨行操作
+df.mean(axis=0)
+df.mean(axis=1)
+df['sum'] = df.apply(lambda x: x["A"] + x["B"] + x["C"] + x['D'], axis=1)
