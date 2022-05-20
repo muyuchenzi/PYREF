@@ -34,4 +34,10 @@ df = pd.DataFrame(np.arange(12).reshape(3, 4), columns=[i for i in "ABCD"])
 # 跨行操作
 df.mean(axis=0)
 df.mean(axis=1)
-df['sum'] = df.apply(lambda x: x["A"] + x["B"] + x["C"] + x['D'], axis=1)
+
+
+def fun(x):
+    return x["A"] + x["B"] + x["C"] + x['D']
+
+
+df['sum'] = df.apply(fun, axis=1)
