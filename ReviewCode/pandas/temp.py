@@ -1,4 +1,5 @@
 import pandas as pd
 import numpy as np
 
-df = pd.date_range('20201001', '20201031').to_list()
+np.random.seed(80)
+df = pd.DataFrame(np.random.rand(10, 4), columns=list("ABCD"))
