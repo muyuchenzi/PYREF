@@ -1,7 +1,7 @@
 import psycopg2
 from sqlalchemy import create_engine
 
-cnn = psycopg2.connect(host='127.0.0.1', port=5432, dbname='muyuchenzi',
+cnn = psycopg2.connect(host='localhost', port=5432, dbname='muyuchenzi',
                        user='chenzi', password="090359")
 
 curs = cnn.cursor()

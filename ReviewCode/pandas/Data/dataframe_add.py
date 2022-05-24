@@ -2,7 +2,10 @@ import pandas as pd
 
 df = pd.read_csv(r'E:\李震祥\temp\pandas\Data\各省市订单数据.csv')
 # 直接赋值
-
+df = pd.read_excel(r'E:\李震祥\PYGIT\PYref\ReviewCode\pandas\Data\各省市订单数据origin.xlsx')
+df.to_csv(r'E:\李震祥\PYGIT\PYref\ReviewCode\pandas\Data\sss\result.csv',
+          encoding='utf-8', index=False)
+df.dtypes
 
 df.loc[:, 'tt'] = df.loc[:, '省'] + df.loc[:, '城市简称']
 df['xx'] = df['省'] + df['城市简称']
