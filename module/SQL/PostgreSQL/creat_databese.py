@@ -1,8 +1,29 @@
 import psycopg2
 from sqlalchemy import create_engine
+import pandas as pd
+from database_conn import db_connect
 
-cnn = psycopg2.connect(host='localhost', port=5432, dbname='muyuchenzi',
-                       user='chenzi', password="090359")
+conn = psycopg2.connect(host='localhost', port=5432, dbname='muyuchenzi',
+                        user='chenzi', password="lizhenxiang")
 
-curs = cnn.cursor()
-engin = create_engine("postgresql://postgre@127.0.0.1:5432/muyuchenzi")
+curs = conn.cursor()
+
+curs.execute(
+    '''
+    SELECT * FROM public.order_test
+    '''
+)
+conn.commit()
+
+rows = curs.fetchall()
+res = pd.DataFrame(rows)
+print(rows)
+
+
+def main_in():
+    result = db_connect()
+    print(result)
+
+
+if __name__ == '__main__':
+    main_in()
