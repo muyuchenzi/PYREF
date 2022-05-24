@@ -29,3 +29,7 @@ def db_connect():
     data = curs.fetchall()
     result = pd.DataFrame(data)
     return result
+
+if __name__=="__main__":
+    res=db_connect()
+    print(res)
