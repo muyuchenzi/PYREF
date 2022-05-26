@@ -10,19 +10,23 @@ from functools import reduce
 class Foo():
     '''
     可变类型与不可变类型：
-    
+    可变类型：list dict set
+    不可变类型 ： string int tuple
+
     '''
     pass
 
 
 def entrance():
-    str_alpha="A quick brown for jumps over the lazy dog"
-    res=str.lower(str_alpha)
-    res=set(res)
-    print(res)
-    str_set_all=set(ascii_lowercase)
-    result=str_set_all-res
-    print(result)
+    str_alpha = "123"
+    list_alpha = [1, 2, 3]
+
+    print(list_alpha.index(3))
+    # result=0
+    # for i in str_alpha:
+    #     result+=int(i)*10
+    # print(result)
+
 
 if __name__ == "__main__":
     file_contents = entrance()

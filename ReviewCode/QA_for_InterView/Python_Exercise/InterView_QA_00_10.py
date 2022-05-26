@@ -35,34 +35,35 @@
 # Q&A 4，打乱一个排序好的list对象。
 
 # import random
-
-# list_alpha=[i for i in range(10)]
+#
+# list_alpha = [i for i in range(10)]
 # random.shuffle(list_alpha)
 # print(list_alpha)
-# #Q&A 5、对字典进行排序
+# Q&A 5、对字典进行排序
 # import random
-# list_value=[i for i in range(2,9)]
+#
+# list_value = [i for i in range(2, 9)]
 # random.shuffle(list_value)
-# list_key=[i for i in "abcdefg"]
-# dict_alpha=dict(zip(list_key,list_value))
-# for k,v in dict_alpha.items():
-#     print(k,v)
+# list_key = [i for i in "abcdefg"]
+# dict_alpha = dict(zip(list_key, list_value))
+# for k, v in dict_alpha.items():
+#     print(k, v)
 # print(dict_alpha)
-# dict_alpha_res=sorted(dict_alpha.items(),key=lambda x:x[1])
+# dict_alpha_res = sorted(dict_alpha.items(), key=lambda x: x[1])
 # print(dict(dict_alpha_res))
 
 # Q&A 6、字典推导式
-# list_value=[i for i in range(5)]
-# list_key=[i for i in "abcde"]
-# dict_beta={k:v for k,v in zip(list_key,list_value)}
+# list_value = [i for i in range(5)]
+# list_key = [i for i in "abcde"]
+# dict_beta = {k: v for k, v in zip(list_key, list_value)}
 # print(dict_beta)
 # Q&A 7、翻转字符串
-# string_alpha='abedefg'
-# string_reverse=string_alpha[::-1]
-# string_rev_a=reversed(string_alpha)
-# string_rev_b=''
+# string_alpha = 'abedefg'
+# string_reverse = string_alpha[::-1]
+# string_rev_a = reversed(string_alpha)
+# string_rev_b = ''
 # for i in range(len(string_alpha)):
-#     string_rev_b+=string_alpha[len(string_alpha)-i-1]
+#     string_rev_b += string_alpha[len(string_alpha) - i - 1]
 # print(string_rev_b)
 # Q&A 8、k:1 |k1:2|k2:3|k3:4"处理成dict
 # string_in = "k:1 |k1:2|k2:3|k3:4"
@@ -72,9 +73,9 @@
 #     dict_rs[items[0]] = items[1]
 # print(dict_rs)
 # Q&A 9、alist = [{'name':'a','age':20},{'name':'b','age':30},{'name':'c','age':25}] age排序
-# alist = [{'name':'a','age':20},{'name':'b','age':30},{'name':'c','age':25}]
-# sorted_alist=sorted(alist,key=lambda x:x['age'],reverse=False)
+# alist = [{'name': 'a', 'age': 20}, {'name': 'b', 'age': 30}, {'name': 'c', 'age': 25}]
+# sorted_alist = sorted(alist, key=lambda x: x['age'], reverse=False)
 # print(sorted_alist)
-#Q&A 10、这个是一个小的bug 如果使用切片切不到不会产生indexError会产生一个空白list,很容易产生BUG找不到。
+# Q&A 10、这个是一个小的bug 如果使用切片切不到不会产生indexError会产生一个空白list,很容易产生BUG找不到。
 # list = ['a','b','c','d','e']
 # print(list[10:])
