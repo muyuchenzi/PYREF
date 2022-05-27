@@ -66,8 +66,15 @@ class C(A, B):
         return result
 
 
-def answer():
-    ...
+class D(C):
+    class_d = set(ascii_lowercase)
+
+    def __init__(self, a, b, c, d):
+        super(D, self).__init__(a, b, c)
+        self.d = d
+
+    def print_d(self):
+        print(self.d)
 
 
 if __name__ == "__main__":
@@ -85,3 +92,10 @@ if __name__ == "__main__":
     res_str = chenzi.show_str(4)
     res_dic = chenzi.show_dict('e')
     print(f"class_a sum :{res_sum},\nclass_b str{res_str},\n class_c dict {res_dic}")
+
+    # D
+    muyu = D(6, 7, 8, 9)
+    muyu.print_d()
+    muyu.print_b()
+    print(muyu.show_sum(5))
+    print(muyu.show_str(5))
