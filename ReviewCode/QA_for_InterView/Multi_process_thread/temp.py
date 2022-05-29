@@ -8,18 +8,17 @@ def producer(pro_queue, cus_queue):
     while True:
         if not pro_queue.empty():
             data = pro_queue.get()
-            mid_res = int(str(data)+"0")
+            mid_res = int(str(data) + "0")
             cus_queue.put(mid_res)
         else:
             break
 
 
 def customer(cus_queue):
-
     while True:
         if not cus_queue.empty():
             data = cus_queue.get()
-            fin_res = data*10
+            fin_res = data * 10
             print(fin_res)
             # cus_queue.put(fin_res)
         else:
@@ -36,8 +35,7 @@ def entry():
         produce_queue.put(ori)
     produce_thread_list = []
     for i in range(4):
-        td_al = threading.Thread(
-            target=producer, args=(produce_queue, custome_queue))
+        td_al = threading.Thread(target=producer, args=(produce_queue, custome_queue))
         td_al.start()
         produce_thread_list.append(td_al)
     [pro_td.join() for pro_td in produce_thread_list]

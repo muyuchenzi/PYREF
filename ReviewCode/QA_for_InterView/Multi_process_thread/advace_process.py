@@ -1,10 +1,13 @@
 import math
-from concurrent.futures import ThreadPoolExecutor,ProcessPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor
 from data.blog_spider import time_spend
+
 '''
 # NOTE 通过使用ThreadPoolExecuteor、ProcessPoolExceutor使用多进程，相对于Thread、Process
 中的Queue模块来说简便了不少,
 '''
+
+
 def is_prime(n):
     if n <= 1:
         return False
@@ -14,24 +17,34 @@ def is_prime(n):
                 return False
         return True
 
-prime_list=[112272535095293]*10
+
+prime_list = [112272535095293] * 10
+
+
 @time_spend
 def single_thread():
-    result=[]
+    result = []
     for i in prime_list:
         result.append(is_prime(i))
-    
+    print(result)
+
+
 @time_spend
 def multi_thread():
     with ThreadPoolExecutor() as pool:
-        pool.map(is_prime,prime_list)
+        temp = pool.map(is_prime, prime_list)
+    for t in temp:
+        print(t)
+
 
 @time_spend
 def multi_process():
     with ProcessPoolExecutor() as pool:
-        pool.map(is_prime,prime_list)
+        result = pool.map(is_prime, prime_list)  # 使用map挨个进行处理
+    print(result)
 
-if __name__=="__main__":
+
+if __name__ == "__main__":
     single_thread()
     multi_thread()
     multi_process()
