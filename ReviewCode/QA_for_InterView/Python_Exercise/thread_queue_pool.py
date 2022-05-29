@@ -19,7 +19,7 @@ def time_spend(func):
         time_start = time.perf_counter()
         func(*args, **kwargs)
         time_end = time.perf_counter()
-        print(f"-----------> 总共消耗时间:{time_end - time_start} <-----------")
+        print(f"-----------> 总共消耗时间:{time_end - time_start} <-----------\n")
 
     return wrapper
 
@@ -80,14 +80,18 @@ def answer_queue():
     # final_result = customer.result()
 
 
+@time_spend
 def str_upper(string):
+    time.sleep(1)
     return str.upper(string)
 
 
+@time_spend
 def str_change(string):
     temp = []
     for i in string:
         temp.append(i)
+        time.sleep(0.1)
     res = [str.upper(i) for i in temp]
     return ''.join(res)
 
@@ -105,9 +109,9 @@ def answer_pool():
     for res in result:
         print(res)
     # 第二种办法是使用submit，对输入元素进行处理，
-    with ThreadPoolExecutor()as future:
+    with ThreadPoolExecutor() as future:
         res = future.submit(str_change, lowcase)
-        print(res.result())
+    print(res.result())
 
 
 if __name__ == "__main__":
