@@ -157,8 +157,8 @@ def model_save():
     assert model_load_predict_res == predict_result  # 模型最后可以观测到时完全一致的。
 
     # NOTE 另外一种保存方法，更快速
-    joblib.dump(model, "E:\李震祥\PYGIT\PYref\module\SKLearn\model_save\svc_joblib.pickle")
-    modle_load_joblib = joblib.load("E:\李震祥\PYGIT\PYref\module\SKLearn\model_save\svc_joblib.pickle")
+    joblib.dump(model, r"E:\李震祥\PYGIT\PYref\module\SKLearn\model_save\svc_joblib.pickle")
+    modle_load_joblib = joblib.load(r"E:\李震祥\PYGIT\PYref\module\SKLearn\model_save\svc_joblib.pickle")
     modle_load_joblib_result = list(modle_load_joblib.predict(X_test[:]))
     assert modle_load_joblib_result == predict_result
 

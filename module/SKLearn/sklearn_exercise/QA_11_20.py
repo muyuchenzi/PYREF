@@ -1,6 +1,7 @@
 import pandas as pd
 import sklearn
 import numpy as np
+from sklearn import datasets
 
 
 def get_data():
@@ -100,6 +101,35 @@ def qa_16():
     df['currency'] = df['currency'].str.replace('_', '')
     df['currency'] = df['currency'].astype(np.int64)
     return df
+
+
+def load_data():
+    '''
+    测试数据 鸢尾花数据
+    :return:
+    '''
+    iris_data = datasets.load_iris().data
+    iris_target = datasets.load_iris().target
+    return iris_data, iris_target
+
+
+def qa_17():
+    '''加载数据'''
+    iris_data, iris_target = load_data()
+    iris_data = pd.DataFrame(iris_data, columns=datasets.load_iris()['feature_names'])
+    iris_target = pd.DataFrame(iris_target)
+    return iris_data, iris_target
+
+
+def qa_18():
+    iris_data, iris_target = qa_17()
+
+
+def qa_19():
+    iris_data, iris_target = qa_17()
+    print(iris_data.shape)
+    print(iris_target.shape)
+    print(iris_target[0].unique())
 
 
 if __name__ == '__main__':
