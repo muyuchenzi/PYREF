@@ -1,14 +1,16 @@
-# 1、让代码可以被导入也可以被执行
-# if __name__ =="__main__":
+from functools import reduce
 
-# 逻辑真或者假的
-# if x: if not x:
+# 人生苦短，我用Python
+a, b, *c, d = [1, 2, 3, 4, 5, 6]
+a = (i for i in range(10))
 
-# name = 'jackfrued'
-# fruits = ['apple', 'orange', 'grape']
-# owners = {'1001': '骆昊', '1002': '王大锤'}
-# if name and fruits and owners:
-#     print('I love fruits!')
 
-# 变量交换
-# a,b=b,a
+def call_back(n):
+    if n > 1:
+        return n * call_back(n - 1)
+    if n == 1:
+        return 1
+
+
+list_alpha = [i for i in range(1, 6)]
+res = reduce(lambda x, y: x * y, list_alpha)
