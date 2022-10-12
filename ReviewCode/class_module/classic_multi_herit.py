@@ -99,3 +99,33 @@ if __name__ == "__main__":
     muyu.print_b()
     print(muyu.show_sum(5))
     print(muyu.show_str(5))
+
+
+class Person(object):
+    def __init__(self, name, age, *args, **kwargs):
+        super(Person, self).__init__(*args, **kwargs)
+        self.name = name
+        self.age = age
+
+    def person_files(self):
+        return f"{self.name + ':' + self.age}"
+
+
+class Father(object):
+    def __init__(self, temp_vary, *args, **kwargs):
+        super(Father, self).__init__(*args, **kwargs)
+        self.temp_vary = temp_vary
+
+
+class Student(Person, Father):
+    def __init__(self, name, age, temp_vary, class_level, score):
+        super(Student, self).__init__(name, age, temp_vary)
+        self.class_level = class_level
+        self.score = score
+
+
+if __name__ == '__main__':
+    chenzi = Student("chenzi", 12, "temp", "高三", 98)
+    chenzi.name
+    chenzi.score
+    chenzi.temp_vary
