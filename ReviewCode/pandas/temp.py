@@ -1,5 +1,11 @@
-import pandas as pd
-import numpy as np
+list_alpha=[i for i in range(10)]
 
-path = r'E:\李震祥\PYGIT\PYref\ReviewCode\pandas\Data\各省市订单数据origin.xlsx'
-df = pd.read_excel(path)
+
+def change():
+    def inner():
+        for i in list_alpha:
+            print(i)
+    
+    inner()
+change()
+# change(list_par=list_alpha) 
