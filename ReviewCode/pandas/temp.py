@@ -1,11 +1,5 @@
-list_alpha=[i for i in range(10)]
+import pandas as pd
+import numpy as np
+import scipy
 
-
-def change():
-    def inner():
-        for i in list_alpha:
-            print(i)
-    
-    inner()
-change()
-# change(list_par=list_alpha) 
+arr = pd.Series(data=[1, 2, 3, 4], index=[i for i in 'abcd'], name='value')
