@@ -77,6 +77,9 @@ df = pd.DataFrame({'grps': list('aaabbcaabcccbbc'),
 df_1 = df[df['vals'] > 0]
 df_mean = df_1.groupby('grps')['vals'].mean()
 res = dict(df_mean)
+a = 1
+xx = dict(a)
+
 df_2 = df[df['vals'] <= 0]
 df_2.reset_index(drop=True, inplace=True)
 df_2['vals'] = df_2['grps'].apply(lambda x: res.get(x))
