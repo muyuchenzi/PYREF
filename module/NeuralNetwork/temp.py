@@ -1,23 +1,35 @@
-# 神经网络的原理,数学方法,构建,训练
-# 应用 图像识别，
-import random
 import torch
 import numpy as np
-import copy
+from torch.autograd import Variable
 
-# 两者切换
-np_data = np.arange(6).reshape((2, 3))
-torch_data = torch.from_numpy(np_data)
-tensor2array = torch_data.numpy()
-#
-data = [1, -2, -4, -2]
-tesor_alpha = torch.from_numpy(np.array(data))
-nump_data = np.abs(data)
-tensor_data = torch.abs(tesor_alpha)
 
-# 矩阵相乘
-data = [[1, 2], [3, 4]]
-res_data = np.array(copy.deepcopy(data))
-tensor = torch.from_numpy(copy.deepcopy(np.array(data)))
-res_data = np.dot(res_data, res_data)
-tesor_data = torch.matmul(tensor, tensor)
+def torch_numpy():
+    '''# NOTE torch、numpy的对比'''
+    np_data = np.arange(1, 5).reshape(2, 2)
+    toc = torch.from_numpy(np_data)
+    tensor2array = toc.numpy()  # torch 与 numpy 互相转换
+
+    list_alpha = [1, -3, -223, 100]
+    np_alpha = np.array(list_alpha)
+
+    tensor = torch.FloatTensor(list_alpha)
+    # 矩阵计算
+
+    res = torch.matmul(toc, toc)
+    res_2 = torch.mm(toc, toc)
+    # assert list(np.array(res == res_2))
+
+    np_data.dot(np_data)
+
+    toc.dot(toc)
+
+
+def torch_variable():
+    '''variable'''
+    tensor = torch.FloatTensor([[1, 2], [3, 4]])
+    variable = Variable(tensor, requires_grad=True)  # 搭建一个图纸
+    t_out = torch.mean(tensor * tensor)
+    v_out = torch.mean(variable * variable)
+    v_out.backward()  # 反向传播
+    # NOTE  v_out=1/4*sum(var*var)
+    variable.grad  # 更新后
