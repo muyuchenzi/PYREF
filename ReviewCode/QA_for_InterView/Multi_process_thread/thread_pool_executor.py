@@ -7,11 +7,11 @@ import concurrent.futures
 def pool_run():
     '''使用线程池来解决，相对于queue，代码更加简洁和容易阅读'''
     # NOTE 使用map来运行
-    # with ThreadPoolExecutor() as pool:
-    #     
-    #     results=pool.map(blog_data.parse_data,htmls)
-    #     for result in results:
-    #         print(result)
+    with ThreadPoolExecutor() as pool:
+
+        results = pool.map(blog_data.parse_data, htmls)
+        for result in results:
+            print(result)
     # NOTE 这里使用submit来进行
     with ThreadPoolExecutor() as pool:
 
