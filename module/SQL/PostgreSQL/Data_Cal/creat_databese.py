@@ -1,7 +1,6 @@
 import psycopg2
-from sqlalchemy import create_engine
 import pandas as pd
-from database_conn import db_connect
+from PYGIT.PYref.module.SQL.PostgreSQL.Data_Cal.database_conn import db_connect
 
 conn = psycopg2.connect(host='localhost', port=5432, dbname='muyuchenzi',
                         user='chenzi', password="lizhenxiang")

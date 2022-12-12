@@ -22,8 +22,8 @@ def db_connect():
 
     curs = conn.cursor()
     # 001
-    # select_sql = db_search()
-    select_sql = sumary()
+    select_sql = db_search()
+    # select_sql = sumary()
 
     curs.execute(select_sql)
     conn.commit()
@@ -39,7 +39,7 @@ def db_search():
     '''
     sql_alpha = '''select * from public.student where 姓名 like '猴%' '''
     sql_beta = '''select * from public.teacher where 教师姓名 like '孟%' '''
-    return sql_beta
+    return sql_alpha
 
 
 def sumary():
