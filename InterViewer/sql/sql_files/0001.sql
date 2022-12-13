@@ -1,0 +1,35 @@
+-- NOTE
+-- select *
+-- from student
+-- where 姓名 like '猴 % ';
+--
+
+-- NOTE
+-- select count(教师名)
+-- from test.public.teacher
+
+-- NOTE面试题：查询课程编号为“0002”的总成绩
+-- select sum(成绩)
+-- from test.public.score
+-- where 课程号 = '0002';
+-- -- 查询选了课0002程的学生人数
+-- select count(学号)
+-- from test.public.score
+-- where 课程号 = '0002';
+-- 
+-- select count(distinct (学号)) as 学生人数
+-- from test.public.score
+
+-- select max(成绩), min(成绩), 课程号
+-- from test.public.score
+-- group by 课程号
+-- order by 课程号 asc;
+--
+-- select count(学号) as 人数, 课程号
+-- from test.public.score
+-- group by 课程号
+-- order by 课程号;
+--
+-- select count(学号) as 人数, 性别
+-- from test.public.student
+-- group by 性别;
